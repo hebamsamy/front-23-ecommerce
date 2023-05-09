@@ -1,0 +1,17 @@
+
+    <div class="card">
+        <img [src]="product.imgURL" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">{{product.name}}</h5>
+          <p class="card-text">{{product.price|currency:"EGP"}}</p>
+          <p class="card-text">{{product.quantity}}</p>
+          <div class="d-flex justify-content-center">
+
+            <a class="btn btn-primary" (click)="add(product)">Add to Cart</a>
+            <a class="btn " (click)="addToWishlist(product)" ><i class="fa fa-heart text-danger"></i></a>
+            <!-- <a class="btn btn-info"  routerLink="/product/{{product.id}}">See More</a> -->
+            <a class="btn btn-info"  [routerLink]="['/product',product.id]">See More</a>
+          </div>
+        </div>
+      </div>
+
