@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ProductService } from 'src/app/Services/product.service';
 
 @Component({
   selector: 'app-details',
@@ -8,11 +9,15 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DetailsComponent {
   
-constructor(private route:ActivatedRoute){
+constructor(private route:ActivatedRoute,private prdSrv:ProductService){
   this.route.params.subscribe(
     (pram)=>{
 
-    console.log(pram["id"])
+    this.prdSrv.getByID(pram["id"]).subscribe({
+      next:(res)=>{
+        console.log(res.data)
+      }
+    })
   })
 }
 }

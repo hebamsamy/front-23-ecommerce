@@ -13,6 +13,14 @@ list:IProduct[]
 constructor(private prdSrv :ProductService){
   this.list = []
   // this.prdSrv =new ProductService()
-  this.list =this.prdSrv.getAll()
+  this.prdSrv.getAll().subscribe({
+    next:(res)=>{
+  let temp = res.data as IProduct[]
+  temp.forEach(item=>{
+    item.id = item._id
+  })
+      this.list = temp
+    }
+  })
 }
 }

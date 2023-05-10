@@ -10,7 +10,7 @@ import { WishlistComponent } from './Components/wishlist/wishlist.component';
 import { DetailsComponent } from './Components/details/details.component';
 
 const routes: Routes = [
-  {path:'',redirectTo:"home",pathMatch:"full"},
+  {path:'',redirectTo:"register",pathMatch:"full"},
   {path:'home',component:HomeComponent},
   {path:"about",component:AboutUSComponent},
   {path:"contact",component:ContactUsComponent},

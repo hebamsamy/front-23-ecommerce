@@ -5,5 +5,6 @@ export interface IProduct
     quantity?: number,
     imgURL?: string,
     categoryID?: number,
-    id?: number
+    id?: string
+    _id?: string
   }
