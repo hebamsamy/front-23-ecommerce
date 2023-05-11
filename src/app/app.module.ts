@@ -16,6 +16,7 @@ import { ContactUsComponent } from './Components/contact-us/contact-us.component
 import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { DetailsComponent } from './Components/details/details.component';
+import { AddProductComponent } from './Components/add-product/add-product.component';
 // import { MyRoute } from './myroute';
 
 @NgModule({
@@ -32,7 +33,8 @@ import { DetailsComponent } from './Components/details/details.component';
     ContactUsComponent,
     NotFoundComponent,
     CartComponent,
-    DetailsComponent
+    DetailsComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,

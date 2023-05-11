@@ -13,14 +13,21 @@ export class AccountService {
   constructor(private http:HttpClient) { 
     this.StoredUserSub = new BehaviorSubject<StoredUser>(this.getuser())
   }
-
+//login
+//logout
   setuser(token:string, name:string){
     let s= {token:token,name:name} as StoredUser;
     localStorage.setItem("storedUser",JSON.stringify(s))
+    this.StoredUserSub.next(s)
   }
+
+  
   getuser():StoredUser{
     return JSON.parse( localStorage.getItem("storedUser")??"{}") as StoredUser
   }
+
+
+
   register( data:User){
     return this.http.post<APIResult>(this.orignaPath+"user/register",data)
   }

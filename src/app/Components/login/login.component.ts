@@ -24,10 +24,11 @@ export class LoginComponent {
   send() {
     if (this.form.valid) {
       console.log(this.form.value)
-      this.accountSrv.register(this.form.value)
+      this.accountSrv.login(this.form.controls["email"].value,this.form.controls["password"].value)
         .subscribe({
           next: (reponse) => {
             if(reponse.success){
+              console.log(reponse.data)
               this.accountSrv.setuser(reponse.data.token,reponse.data.user.name)
               this.router.navigateByUrl('/home')
             }else{

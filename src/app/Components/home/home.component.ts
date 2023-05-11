@@ -16,9 +16,9 @@ constructor(private prdSrv :ProductService){
   this.prdSrv.getAll().subscribe({
     next:(res)=>{
   let temp = res.data as IProduct[]
-  temp.forEach(item=>{
-    item.id = item._id
-  })
+  // temp.forEach(item=>{
+  //   item.id = item._id
+  // })
       this.list = temp
     }
   })

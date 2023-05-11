@@ -10,7 +10,7 @@
             <a class="btn btn-primary" (click)="add(product)">Add to Cart</a>
             <a class="btn " (click)="addToWishlist(product)" ><i class="fa fa-heart text-danger"></i></a>
             <!-- <a class="btn btn-info"  routerLink="/product/{{product.id}}">See More</a> -->
-            <a class="btn btn-info"  [routerLink]="['/product',product.id]">See More</a>
+            <a class="btn btn-info"  [routerLink]="['/product',product._id]">See More</a>
           </div>
         </div>
       </div>

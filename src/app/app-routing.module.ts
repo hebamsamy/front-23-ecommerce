@@ -8,15 +8,17 @@ import { RegisterComponent } from './Components/register/register.component';
 import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { WishlistComponent } from './Components/wishlist/wishlist.component';
 import { DetailsComponent } from './Components/details/details.component';
+import { AddProductComponent } from './Components/add-product/add-product.component';
 
 const routes: Routes = [
-  {path:'',redirectTo:"register",pathMatch:"full"},
+  {path:'',redirectTo:"add-product",pathMatch:"full"},
   {path:'home',component:HomeComponent},
   {path:"about",component:AboutUSComponent},
   {path:"contact",component:ContactUsComponent},
   {path:"login",component:LoginComponent},
   {path:"register",component:RegisterComponent},
   {path:"wishlist",component:WishlistComponent},
+  {path:"add-product",component:AddProductComponent},
   {path:"product/:id",component:DetailsComponent},
   {path:"**",component:NotFoundComponent}
 ];

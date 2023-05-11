@@ -1,0 +1,126 @@
+<div class="container">
+  <form class="row g-3" [formGroup]="form" (ngSubmit)="send()">
+    <div class="col-12">
+      <label for="validationCustom01" class="form-label">Product Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="validationCustom01"
+        formControlName="name"
+        [ngClass]="{ 
+            'is-valid': form.controls['name'].valid && form.controls['name'].touched,
+            'is-invalid': form.controls['name'].invalid && form.controls['name'].touched,
+         }"
+      />
+      <div
+        class="invalid-feedback"
+        *ngIf="form.controls['name'].invalid && form.controls['name'].touched"
+      >
+        <span *ngIf="form.controls['name'].hasError('required')"
+          >Please provide a enter User name.</span
+        >
+      </div>
+      <div class="valid-feedback" *ngIf="form.controls['name'].valid">
+        Looks good!
+      </div>
+    </div>
+    <div class="col-12">
+      <label for="validationCustom02" class="form-label">Description</label>
+      <input
+        type="text"
+        class="form-control"
+        id="validationCustom02"
+        formControlName="description"
+        [ngClass]="{ 
+            'is-valid': form.controls['description'].valid && form.controls['description'].touched,
+            'is-invalid': form.controls['description'].invalid && form.controls['description'].touched,
+         }"
+      />
+      <div class="valid-feedback" *ngIf="form.controls['description'].valid">
+        Looks good!
+      </div>
+      <div
+        class="invalid-feedback"
+        *ngIf="
+          form.controls['description'].invalid &&
+          form.controls['description'].touched
+        "
+      >
+        <span *ngIf="form.controls['description'].hasError('required')"
+          >Please provide a enter Phone Number.</span
+        >
+      </div>
+    </div>
+    <div class="col-12">
+      <label for="validationCustom02" class="form-label">Quantity</label>
+      <input
+        type="text"
+        class="form-control"
+        id="validationCustom02"
+        formControlName="quantity"
+        [ngClass]="{ 
+            'is-valid': form.controls['quantity'].valid && form.controls['quantity'].touched,
+            'is-invalid': form.controls['quantity'].invalid && form.controls['quantity'].touched,
+         }"
+      />
+      <div class="valid-feedback" *ngIf="form.controls['quantity'].valid">
+        Looks good!
+      </div>
+      <div
+        class="invalid-feedback"
+        *ngIf="
+          form.controls['quantity'].invalid && form.controls['quantity'].touched
+        "
+      >
+        <span *ngIf="form.controls['quantity'].hasError('required')"
+          >Please provide a enter Quantity.</span
+        >
+      </div>
+    </div>
+    <div class="col-12">
+      <label for="validationCustom02" class="form-label">Price</label>
+      <input
+        type="text"
+        class="form-control"
+        id="validationCustom02"
+        formControlName="price"
+        [ngClass]="{ 
+            'is-valid': form.controls['price'].valid && form.controls['price'].touched,
+            'is-invalid': form.controls['price'].invalid && form.controls['price'].touched,
+         }"
+      />
+      <div class="valid-feedback" *ngIf="form.controls['price'].valid">
+        Looks good!
+      </div>
+      <div
+        class="invalid-feedback"
+        *ngIf="form.controls['price'].invalid && form.controls['price'].touched"
+      >
+        <span *ngIf="form.controls['price'].hasError('required')"
+          >Please provide a enter Price.</span
+        >
+      </div>
+    </div>
+    <div class="col-12">
+      <label for="validationCustom02" class="form-label"
+        >Colors of Product</label
+      >
+      <button class="btn" (click)="add()">add</button>
+        <div class="row" formArrayName="colors" *ngFor="let item of listColors.controls;let i = index">
+          <input class="col-6" type="color" [formControlName]="i" />
+          <button (click)="remove(i)" class="btn btn-danger col-6">X</button>
+        </div>
+    </div>
+    <div>
+      <label for="validationCustom02" class="form-label"
+        >Upload product Image</label
+      >
+      <input class="form-control" type="file" #img (change)="upload(img.files)">
+    </div>
+    <div class="col-12">
+      <button class="btn btn-primary" type="submit" [disabled]="form.invalid">
+        Register
+      </button>
+    </div>
+  </form>
+</div>

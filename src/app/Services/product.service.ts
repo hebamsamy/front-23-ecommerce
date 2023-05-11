@@ -20,6 +20,9 @@ export class ProductService {
   getByCategoryID(id:number){
     return this.http.get<APIResult>(this.orignaPath+"product/category/"+id);
   }
+  add(data:FormData){
+    return this.http.post<APIResult>(this.orignaPath+'product/add',data)
+  }
   // updateProduct(id :number,qty:number):void{
   //   this.Products.forEach(item=>{
   //     if(item.id ==id){

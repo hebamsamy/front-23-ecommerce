@@ -14,6 +14,10 @@ export class ProductCardComponent {
   }
   add(prd:IProduct){}
   addToWishlist(product:IProduct){
-    this.wishSrv.add(product)
+    this.wishSrv.add(product).subscribe({
+      next:(res)=>{
+        console.log(res)
+      }
+    })
   }
 }
