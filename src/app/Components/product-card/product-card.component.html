@@ -7,10 +7,12 @@
           <p class="card-text">{{product.quantity}}</p>
           <div class="d-flex justify-content-center">
 
-            <a class="btn btn-primary" (click)="add(product)">Add to Cart</a>
-            <a class="btn " (click)="addToWishlist(product)" ><i class="fa fa-heart text-danger"></i></a>
-            <!-- <a class="btn btn-info"  routerLink="/product/{{product.id}}">See More</a> -->
-            <a class="btn btn-info"  [routerLink]="['/product',product._id]">See More</a>
+            <a class="btn" (click)="add(product)"><i class="text-primary fa fa-shopping-cart"></i></a>
+            <a class="btn" (click)="addToWishlist(product)" ><i class="fa fa-heart text-danger"></i></a>
+            <a class="btn"  [routerLink]="['/product',product._id]"><i class="fa fa-eye text-success"></i></a>
+            <a class="btn"  routerLink="/edit-product/{{product._id}}"><i class="fa fa-edit text-warning"></i></a>
+            <a class="btn btn-danger" (click)="delete(product._id!)" ><i class="fa fa-trash"></i></a>
+
           </div>
         </div>
       </div>

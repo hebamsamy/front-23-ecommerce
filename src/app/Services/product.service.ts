@@ -23,6 +23,12 @@ export class ProductService {
   add(data:FormData){
     return this.http.post<APIResult>(this.orignaPath+'product/add',data)
   }
+  edit(data:FormData,id:string){
+    return this.http.put<APIResult>(this.orignaPath+'product/edit/'+id,data)
+  }
+  delete(id :string){
+    return this.http.delete<APIResult>(this.orignaPath+"product/delete/"+id);
+  }
   // updateProduct(id :number,qty:number):void{
   //   this.Products.forEach(item=>{
   //     if(item.id ==id){

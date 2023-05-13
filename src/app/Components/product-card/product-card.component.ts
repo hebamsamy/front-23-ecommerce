@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { IProduct } from 'src/app/Models/IProduct';
+import { ProductService } from 'src/app/Services/product.service';
 import { WishlistService } from 'src/app/Services/wishlist.service';
 
 @Component({
@@ -9,7 +11,7 @@ import { WishlistService } from 'src/app/Services/wishlist.service';
 })
 export class ProductCardComponent {
   @Input() product:IProduct ={}
-  constructor(private wishSrv:WishlistService ){
+  constructor(private wishSrv:WishlistService ,private prdSrv:ProductService,private router:Router){
     
   }
   add(prd:IProduct){}
@@ -19,5 +21,14 @@ export class ProductCardComponent {
         console.log(res)
       }
     })
+  }
+  delete(id:string){
+   if( confirm("Are You Sure You Want to Delete This Product")){
+    this.prdSrv.delete(id).subscribe({
+      next:(res)=>{
+        this.router.navigateByUrl("/home")
+      }
+    })
+   }
   }
 }

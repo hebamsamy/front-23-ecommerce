@@ -17,6 +17,7 @@ import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { DetailsComponent } from './Components/details/details.component';
 import { AddProductComponent } from './Components/add-product/add-product.component';
+import { EditProductComponent } from './Components/edit-product/edit-product.component';
 // import { MyRoute } from './myroute';
 
 @NgModule({
@@ -34,7 +35,8 @@ import { AddProductComponent } from './Components/add-product/add-product.compon
     NotFoundComponent,
     CartComponent,
     DetailsComponent,
-    AddProductComponent
+    AddProductComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,
