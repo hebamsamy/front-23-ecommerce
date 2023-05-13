@@ -32,7 +32,7 @@ export class RegisterComponent {
           next: (reponse) => {
             if(reponse.success){
               //go to login com
-              this.router.navigateByUrl('/login')
+              this.router.navigate(['/login',"/home"])
             }else{
               alert(reponse.message)
             }

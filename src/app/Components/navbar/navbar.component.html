@@ -12,20 +12,30 @@
           <li class="nav-item">
             <a class="nav-link" routerLink="/about">about us</a>
           </li>
-          <li class="nav-item dropdown">
+          <li class="nav-item">
+            <a class="nav-link btn" routerLink="/wishlist" tabindex="-1"><i class="fa fa-heart"></i> {{count}}  </a>
+          </li>
+          <li class="nav-item dropdown" *ngIf="!islogged">
             <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
+              Join US
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" routerLink="/login">Login</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/login','/home']">Login</a></li>
               <li><a class="dropdown-item" routerLink="/register">register</a></li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/wishlist" tabindex="-1"><i class="fa fa-heart"></i> {{count}}  </a>
+          <li class="nav-item dropdown" *ngIf="islogged">
+            <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              {{UserName}}
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" routerLink="/profile">profile</a></li>
+              <li><a class="dropdown-item"  (click)="logout()">Logout</a></li>
+            </ul>
           </li>
+
         </ul>
-        <form class="d-flex">
+        <form class="d-flex" *ngIf="islogged" >
           <a class="btn btn-outline-primary" routerLink="/add-product">add Product</a>
         </form>
       </div>

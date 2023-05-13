@@ -21,7 +21,11 @@ export class AccountService {
     this.StoredUserSub.next(s)
   }
   getuser():StoredUser{
-    return JSON.parse( localStorage.getItem("storedUser")??"{}") as StoredUser
+    let check = localStorage.getItem("storedUser")
+    if(check == null)
+      return {token:"",name:""}
+    else
+      return JSON.parse(check)  as StoredUser
   }
 
   register( data:User){

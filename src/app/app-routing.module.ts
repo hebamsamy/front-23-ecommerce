@@ -10,18 +10,19 @@ import { WishlistComponent } from './Components/wishlist/wishlist.component';
 import { DetailsComponent } from './Components/details/details.component';
 import { AddProductComponent } from './Components/add-product/add-product.component';
 import { EditProductComponent } from './Components/edit-product/edit-product.component';
+import { AuthGuard } from './Services/Guard/auth.guard';
 
 const routes: Routes = [
   {path:'',redirectTo:"home",pathMatch:"full"},
   {path:'home',component:HomeComponent},
   {path:"about",component:AboutUSComponent},
   {path:"contact",component:ContactUsComponent},
-  {path:"login",component:LoginComponent},
+  {path:"login/:returnRrl",component:LoginComponent},
   {path:"register",component:RegisterComponent},
-  {path:"wishlist",component:WishlistComponent},
-  {path:"add-product",component:AddProductComponent},
+  {path:"wishlist",component:WishlistComponent,canActivate:[AuthGuard]},
+  {path:"add-product",component:AddProductComponent,canActivate:[AuthGuard]},
   {path:"product/:id",component:DetailsComponent},
-  {path:"edit-product/:id",component:EditProductComponent},
+  {path:"edit-product/:id",component:EditProductComponent,canActivate:[AuthGuard]},
   {path:"**",component:NotFoundComponent}
 ];
 

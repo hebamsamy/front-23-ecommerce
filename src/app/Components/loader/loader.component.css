@@ -1,0 +1,12 @@
+.overlay{
+    height: 100Vh;
+    width: 100%;
+    background-color: gainsboro;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+}

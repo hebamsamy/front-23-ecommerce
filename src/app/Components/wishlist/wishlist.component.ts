@@ -20,6 +20,7 @@ export class WishlistComponent {
   this.wishSrv.remove(id).subscribe({
     next:(res)=>{
       this.wishSrv.setInStorage(res.data as IProduct[])
+      console.log(res.data)
     }
   })
  }

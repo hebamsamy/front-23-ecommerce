@@ -19,6 +19,7 @@ export class ProductCardComponent {
     this.wishSrv.add(product).subscribe({
       next:(res)=>{
         console.log(res)
+        if(res.success)
         this.wishSrv.setInStorage(res.data as IProduct[])
       }
     })
@@ -27,7 +28,8 @@ export class ProductCardComponent {
    if( confirm("Are You Sure You Want to Delete This Product")){
     this.prdSrv.delete(id).subscribe({
       next:(res)=>{
-        this.router.navigateByUrl("/home")
+        // this.router.navigateByUrl("/home")
+        location.reload()
       }
     })
    }
