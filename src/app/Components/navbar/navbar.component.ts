@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { IProduct } from 'src/app/Models/IProduct';
+import { AccountService, StoredUser } from 'src/app/Services/account.service';
 import { WishlistService } from 'src/app/Services/wishlist.service';
 
 @Component({
@@ -9,10 +11,16 @@ import { WishlistService } from 'src/app/Services/wishlist.service';
 export class NavbarComponent {
 count:number=0
 constructor(private wishSrv:WishlistService){
-  // this.count = this.wishSrv.list.length
   this.wishSrv.wishlistSubject.subscribe((val)=>{
     this.count = val.length
   })
+  this.wishSrv.getAll().subscribe(
+    (res)=>{
+      this.wishSrv.setInStorage(res.data as IProduct[])
+    }
+  )
+}
 
+logout(){
 }
 }

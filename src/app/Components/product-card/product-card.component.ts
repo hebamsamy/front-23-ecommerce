@@ -19,6 +19,7 @@ export class ProductCardComponent {
     this.wishSrv.add(product).subscribe({
       next:(res)=>{
         console.log(res)
+        this.wishSrv.setInStorage(res.data as IProduct[])
       }
     })
   }

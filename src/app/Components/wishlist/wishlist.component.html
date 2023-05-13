@@ -1,12 +1,15 @@
 <div class="row" >
-
-    <!-- <div class="card" *ngFor="let product of list">
+    <div class="d-flex justify-content-center">
+        <button class="btn btn-danger" (click)="empty()">empty</button>
+        <a class="btn" routerLink="/home">Go to Product Page</a>
+    </div>
+    <div class="card col-6" *ngFor="let product of list">
         <img [src]="product.imgURL" class="card-img-top">
         <div class="card-body">
             <h5 class="card-title">{{product.name}}</h5>
             <p class="card-text">{{product.price|currency:"EGP"}}</p>
             <p class="card-text">{{product.quantity}}</p>
-            <a class="btn btn-primary" (click)="">Remove</a>
+            <a class="btn btn-primary" (click)="remove(product._id!)">Remove</a>
         </div>
-    </div> -->
+    </div>
 </div>
