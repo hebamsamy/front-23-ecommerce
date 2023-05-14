@@ -1,5 +1,10 @@
 <div class="container">
+    <button (click)="openSnackBar('Hellonjcbnm','close')">
+
+        <mat-icon >home</mat-icon>
+    </button>
     <div class="row d-flex">
-        <app-product-card class="col-4 my-2" [product]="item" *ngFor="let item of list"></app-product-card>
+        <app-product-card  class="col-4 my-2" [product]="item" *ngFor="let item of list | paginate: { itemsPerPage: 9, currentPage: page }"></app-product-card>
     </div>
+    <pagination-controls class="my-pagination" (pageChange)="change($event)"></pagination-controls>
 </div>

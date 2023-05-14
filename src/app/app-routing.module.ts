@@ -6,24 +6,40 @@ import { ContactUsComponent } from './Components/contact-us/contact-us.component
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { NotFoundComponent } from './Components/not-found/not-found.component';
-import { WishlistComponent } from './Components/wishlist/wishlist.component';
+import { WishlistComponent } from './user/wishlist/wishlist.component';
 import { DetailsComponent } from './Components/details/details.component';
-import { AddProductComponent } from './Components/add-product/add-product.component';
-import { EditProductComponent } from './Components/edit-product/edit-product.component';
+import { AddProductComponent } from './vendor/add-product/add-product.component';
+import { EditProductComponent } from './vendor/edit-product/edit-product.component';
 import { AuthGuard } from './Services/Guard/auth.guard';
+import { LayoutComponent } from './Components/layout/layout.component';
 
 const routes: Routes = [
-  {path:'',redirectTo:"home",pathMatch:"full"},
-  {path:'home',component:HomeComponent},
-  {path:"about",component:AboutUSComponent},
-  {path:"contact",component:ContactUsComponent},
-  {path:"login/:returnRrl",component:LoginComponent},
-  {path:"register",component:RegisterComponent},
-  {path:"wishlist",component:WishlistComponent,canActivate:[AuthGuard]},
-  {path:"add-product",component:AddProductComponent,canActivate:[AuthGuard]},
-  {path:"product/:id",component:DetailsComponent},
-  {path:"edit-product/:id",component:EditProductComponent,canActivate:[AuthGuard]},
-  {path:"**",component:NotFoundComponent}
+  {
+    path: "", component: LayoutComponent, children: [
+      { path: '', redirectTo: "home", pathMatch: "full" },
+      { path: 'home', component: HomeComponent },
+      { path: "about", component: AboutUSComponent },
+      { path: "contact", component: ContactUsComponent },
+      { path: "product/:id", component: DetailsComponent },
+      {
+        path: 'user',
+        loadChildren: () => import('./user/user.module').then(m => m.UserModule),
+        canActivate: [AuthGuard]
+      },
+    ]
+  },
+  ////////////////////////////////////////////
+  {
+    path: 'vendor',
+    loadChildren: () => import('./vendor/vendor.module').then(m => m.VendorModule),
+    canActivate: [AuthGuard]
+  },
+  /////////////////////////////////
+  { path: "register", component: RegisterComponent },
+  { path: "login/:returnRrl", component: LoginComponent },
+
+
+  { path: "**", component: NotFoundComponent }
 ];
 
 @NgModule({

@@ -7,21 +7,24 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/home">Home</a>
+            <a class="nav-link" aria-current="page" routerLink="/home" routerLinkActive="active">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/about">about us</a>
+            <a class="nav-link" routerLink="/about" routerLinkActive="active">about us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link btn" routerLink="/wishlist" tabindex="-1"><i class="fa fa-heart"></i> {{count}}  </a>
+            <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn" routerLink="/user/wishlist" routerLinkActive="active" tabindex="-1"><i class="fa fa-heart"></i> {{count}}  </a>
           </li>
           <li class="nav-item dropdown" *ngIf="!islogged">
             <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Join US
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" [routerLink]="['/login','/home']">Login</a></li>
-              <li><a class="dropdown-item" routerLink="/register">register</a></li>
+              <li><a class="dropdown-item" routerLinkActive="active" [routerLink]="['/login','/home']">Login</a></li>
+              <li><a class="dropdown-item" routerLinkActive="active" routerLink="/register">register</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown" *ngIf="islogged">
@@ -29,14 +32,14 @@
               {{UserName}}
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" routerLink="/profile">profile</a></li>
-              <li><a class="dropdown-item"  (click)="logout()">Logout</a></li>
+              <li><a class="dropdown-item" routerLinkActive="active" routerLink="/user/profile">profile</a></li>
+              <li><a class="dropdown-item" routerLinkActive="active" (click)="logout()">Logout</a></li>
             </ul>
           </li>
 
         </ul>
         <form class="d-flex" *ngIf="islogged" >
-          <a class="btn btn-outline-primary" routerLink="/add-product">add Product</a>
+          <a class="btn btn-outline-primary" [routerLinkActive]="['active']" routerLink="/vendor">Go to Dashbourd</a>
         </form>
       </div>
     </div>

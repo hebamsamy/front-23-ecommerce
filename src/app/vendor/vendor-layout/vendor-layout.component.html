@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Vendor DashBourd</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/home">Back to Main</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="d-flex">
+    <aside class="col-3 bg-info" style="height: 90vh;">
+        <a class="btn" routerLink="/vendor/add-product">Add Product </a>
+        <a class="btn" routerLink="/vendor/product-list">List Product </a>
+    </aside>
+    <div class="col-8" [@routeFade]="o.isActivated?o.activatedRoute:''">
+      <router-outlet #o="outlet"></router-outlet>
+  </div>
+  </div>
